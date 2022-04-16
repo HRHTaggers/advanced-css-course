@@ -297,10 +297,61 @@ body {
 }
 
 .card {
+  -webkit-perspective: 150rem;
+          perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
   height: 50rem;
-  background-color: orangered;
+}
+
+.card__side {
+  height: 50rem;
+  color: #fff;
+  -webkit-transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+}
+
+.card__side--front {
+  background-color: #fff;
+}
+
+.card__side--back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+.card__side--back-1 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ff7730), to(#ffb900));
+  background-image: linear-gradient(to right, #ff7730, #ffb900);
+}
+
+.card__side--back-2 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28b485), to(#7ed56f));
+  background-image: linear-gradient(to right, #28b485, #7ed56f);
+}
+
+.card__side--back-3 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#5643fa), to(#2998ff));
+  background-image: linear-gradient(to right, #5643fa, #2998ff);
+}
+
+.card:hover .card__side--front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.card:hover .card__side--back {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
 }
 
 .composition {
