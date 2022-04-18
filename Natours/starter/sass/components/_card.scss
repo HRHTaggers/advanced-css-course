@@ -70,11 +70,21 @@
     }
 
     &--2 {
-      background-image: linear-gradient(to right, $color-primary-dark, $color-primary-light), url(../img/nat-6.jpg);
+      background-image: linear-gradient(
+          to right, 
+          $color-primary-dark, 
+          $color-primary-light
+          ), 
+          url(../img/nat-6.jpg);
     }
 
     &--3 {
-      background-image: linear-gradient(to right, $color-tertiary-dark, $color-tertiary-light), url(../img/nat-7.jpg);
+      background-image: linear-gradient(
+          to right, 
+          $color-tertiary-dark, 
+          $color-tertiary-light
+          ), 
+          url(../img/nat-7.jpg);
     }
   }
 
