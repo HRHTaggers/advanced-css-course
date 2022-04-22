@@ -1,5 +1,4 @@
 body {
-  padding: 3rem;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: $default-font-size;
@@ -21,6 +20,11 @@ body {
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+
+      @include respond(phone) {
+        letter-spacing: 1rem;
+        font-family: 5rem;
+    }
   }
 
   &--sub {
@@ -29,6 +33,11 @@ body {
     font-weight: 700;
     letter-spacing: 1.35rem;
     animation: moveInRight 1s ease-in-out;
+  
+    @include respond(phone) {
+        letter-spacing: 0.5rem;
+    }
+  
   }
 }
 
@@ -42,6 +51,14 @@ body {
   color: transparent;
   letter-spacing: 0.2rem;
   transition: 200ms all ease-in-out;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
