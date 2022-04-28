@@ -16,6 +16,7 @@
         rgba($color-primary-light, 0.8),
         rgba($color-primary-dark, 0.8)),
     url(../img/nat-4.jpg);
+    background-size: cover;
     
     transform: skewY(-7deg);
 
@@ -64,7 +65,7 @@
         transparent 50%
         ), 
         url(../img/nat-10.jpg);
-    background-size: cover;
+    background-size: 100%;
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.25);
 
