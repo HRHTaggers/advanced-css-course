@@ -45,6 +45,16 @@ html {
   }
 }
 
+html ::-moz-selection {
+  background-color: #55c57a;
+  color: #fff;
+}
+
+html ::selection {
+  background-color: #55c57a;
+  color: #fff;
+}
+
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -874,6 +884,16 @@ body {
   visibility: hidden;
   -webkit-transition: 300ms all ease-in-out;
   transition: 300ms all ease-in-out;
+  -webkit-backdrop-filter: blur(5%);
+          backdrop-filter: blur(5%);
+}
+
+@supports ((-webkit-backdrop-filter: blur(5%)) or (backdrop-filter: blur(5%))) {
+  .popup {
+    -webkit-backdrop-filter: blur(5%);
+    backdrop-filter: blur(5%);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .popup:target {
@@ -995,14 +1015,20 @@ body {
   width: 15rem;
   height: 15rem;
   float: left;
-  -webkit-transform: translateX(-3rem);
-          transform: translateX(-3rem);
-  shape-outside: circle(50% at 50% 50%);
-  -webkit-clip-path: circle(50% at 50% 50%);
-          clip-path: circle(50% at 50% 50%);
+  border-radius: 50%;
   -webkit-transform: translateX(-3rem) skewX(12deg);
           transform: translateX(-3rem) skewX(12deg);
   position: relative;
+  overflow: hidden;
+}
+
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) or ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) {
+  .story__shape {
+    -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    border-radius: 0%;
+  }
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -1151,17 +1177,23 @@ body {
 }
 
 .header {
-  height: 95vh;
+  height: 90vh;
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero-small.jpg);
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-@media (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) or ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) {
+  .header {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), only screen and (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
   .header {
     background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero.jpg);
     background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
